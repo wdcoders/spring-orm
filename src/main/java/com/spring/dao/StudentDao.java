@@ -16,6 +16,12 @@ public class StudentDao {
         return id;
     }
 
+    // get single student
+    public Student getStudent(int id) {
+        Student student = (Student) this.hibernateTemplate.get(Student.class, id);
+        return student;
+    }
+
     public HibernateTemplate getHibernateTemplate() {
         return hibernateTemplate;
     }

@@ -11,9 +11,10 @@ public class App {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 
         StudentDao studentDao = context.getBean("studentDao", StudentDao.class);
-        Student student = new Student(1002, "Sachin Kumar", "sachin@gmail.com");
-        int result = studentDao.saveStudent(student);
-        System.out.println("Save Result  : " + result);
+        // Student student = new Student(1002, "Sachin Kumar", "sachin@gmail.com");
+        // int result = studentDao.saveStudent(student);
+        Student student = studentDao.getStudent(1001);
+        System.out.println(student.getStudentName());
         context.close();
     }
 }
